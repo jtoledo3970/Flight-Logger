@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+
+<div class="container">
+  <header class="jumbotron">
+      <h1>Welcome to Flight Log Pro</h1>
+      <p>
+        <a class="btn btn-primary btn-large" href="/logs/new">Add New Logbook Entry</a>
+      </p>
+  </header>
+
+  <table class="table table-striped">
+    <thead>
+      <th>#</th>
+      <th>Date</th>
+      <th>Depart</th>
+      <th>Dest</th>
+      <th>Duration</th>
+      <th>Remarks</th>
+    </thead>
+    <tbody>
+    <% var i = 0 %>
+    <% logs.forEach(function(log) { %>
+      <tr>
+        <th scope="row"><%= ++i %></th>
+        <td><%= log.date %></td>
+        <td><%= log.departure %></td>
+        <td><%= log.destination %></td>
+        <td><%= log.duration %></td>
+        <td><%= log.remarks %></td>
+      </tr>
+    <% }); %>
+    </tbody>
+  </table>
+</div>
+
+<% include ../partials/footer %>
